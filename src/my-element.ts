@@ -21,7 +21,7 @@ export class MyElement extends LitElement {
       display: block;
       border: solid 1px gray;
       padding: 16px;
-      max-width: 800px;
+      max-width: 100%;
     }
   `;
 
@@ -29,7 +29,7 @@ export class MyElement extends LitElement {
    * The name to say "Hello" to.
    */
   @property()
-  name = 'World';
+  name = 'Jereme';
 
   /**
    * The number of times the button has been clicked.
@@ -39,17 +39,9 @@ export class MyElement extends LitElement {
 
   override render() {
     return html`
-      <h1>${this.sayHello(this.name)}!</h1>
-      <button @click=${this._onClick} part="button">
-        Click Count: ${this.count}
-      </button>
+      <h1>${this.name}</h1>
       <slot></slot>
     `;
-  }
-
-  private _onClick() {
-    this.count++;
-    this.dispatchEvent(new CustomEvent('count-changed'));
   }
 
   /**
